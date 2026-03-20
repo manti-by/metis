@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Budget, BudgetColumn, CreateItemData, CreateColumnData } from '../types';
-import { getBudget, updateBudget, createColumn, deleteColumn, createItem, deleteItem } from '../api';
+import { getBudget, updateBudget, createColumn, deleteColumn, createItem, deleteItem } from './api';
 import './App.css';
 
 function App() {

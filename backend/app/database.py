@@ -1,9 +1,10 @@
 import os
+
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, declarative_base, declared_attr
+from sqlalchemy.orm import declarative_base, sessionmaker
 
 DATABASE_URL = os.getenv(
-    "DATABASE_URL", "postgresql://postgres:postgres@localhost:5432/metis"
+    "DATABASE_URL", "postgresql://metis:metis@localhost:5432/metis"
 )
 
 engine = None
