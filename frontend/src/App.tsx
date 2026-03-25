@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import type { Budget, BudgetColumn, CreateItemData, CreateColumnData } from '../types';
+import type { Budget, BudgetColumn, ExpenseItem, CreateItemData, CreateColumnData } from './types';
 import { getBudget, updateBudget, createColumn, deleteColumn, createItem, deleteItem } from './api';
 import './App.css';
 
@@ -87,7 +87,7 @@ function App() {
   };
 
   const totalItemsCost = budget?.columns.reduce(
-    (sum, col) => sum + col.items.reduce((s, item) => s + item.cost, 0),
+    (sum: number, col) => sum + col.items.reduce((s: number, item) => s + item.cost, 0),
     0
   ) ?? 0;
 
@@ -184,7 +184,7 @@ function App() {
 
       <main className="columns-container">
         <AnimatePresence mode="popLayout">
-          {budget.columns.map((column, index) => (
+          {budget.columns.map((column: BudgetColumn, index: number) => (
             <motion.div
               key={column.id}
               className="column"
@@ -205,7 +205,7 @@ function App() {
               </div>
               <div className="items-list">
                 <AnimatePresence mode="popLayout">
-                  {column.items.map((item) => (
+                  {column.items.map((item: ExpenseItem) => (
                     <motion.div
                       key={item.id}
                       className="item-card"
